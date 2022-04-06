@@ -13,6 +13,7 @@ class App extends Component {
       ],
       newTask: "",
       error: "",
+      toggle: false,
     };
   }
 
@@ -61,14 +62,22 @@ class App extends Component {
         <div className="list">
           <h3>Por hacer:</h3>
           <ul className="todo">
-            {this.state.tasks.map((task, index) => (
+            {this.state.tasks.map((task) => (
               <li
                 key={task.id}
                 className={task.done ? "done" : ""}
                 onClick={(e) => {
-                  this.setState({
-                    task: (task.done = true),
-                  });
+                  if (this.state.toggle === false) {
+                    this.setState({
+                      task: (task.done = true),
+                      toggle: true,
+                    });
+                  } else {
+                    this.setState({
+                      task: (task.done = false),
+                      toggle: false,
+                    });
+                  }
                 }}
               >
                 {task.name}

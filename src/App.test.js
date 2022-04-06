@@ -57,11 +57,11 @@ it("adds error class to input field when creating a blank task", () => {
   expect(wrapper.find("#new-task").hasClass("error")).toBe(true);
 });
 
-// it('toggles done classs on li when click', () => {
-//   const wrapper = mount(<App />);
-//   const task = wrapper.find('li').first()
-//   task.simulate('click', {preventDefault(){}})
-//   expect(wrapper.find('li').first().hasClass('done')).toBe(true)
-//   task.simulate('click', {preventDefault(){}})
-//   expect(wrapper.find('li').first().hasClass('done')).toBe(false)
-// })
+it("toggles done classs on li when click", () => {
+  const wrapper = mount(<App />);
+  const task = wrapper.find("li").first();
+  task.simulate("click", { preventDefault() {} });
+  expect(wrapper.find("li").first().hasClass("done")).toBe(true);
+  task.simulate("click", { preventDefault() {} });
+  expect(wrapper.find("li").first().hasClass("done")).toBe(false);
+});
